@@ -75,10 +75,15 @@ Our results show that..We conclude that..
   <p class="ex2">
     <h3 id="Introduction">Introduction</h3
     <pre>
+
+<div align="center">
+
+
 Today there exists many billions of galaxies. How did they form? To answer that question, over many years astronomers have used the fundamental laws of physics to deduce the basic story of galaxy formation. 
 The formation process had begun with huge clouds of gas and dust. As these clouds collapse under gravity,
 the gas becomes denser and heats up, leading to the formation of stars. Overtime, smaller galaxies collide
 and merge which allows them to grow into large structures.
+</div>
     </pre>
     </p>
 
