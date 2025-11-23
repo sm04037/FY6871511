@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 *{ 
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #1a1a2e; /* Dark blue background */
-  color: #eaeaea;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
 }
 
 .header{
@@ -33,21 +35,21 @@ body {
   font-size: 18px;
   margin: 5px 0;
   font-weight: bold;
-  color: #eaeaea;
+  color: #000000;
 }
 
 .top-left-info h2 {
   font-size: 16px;
   margin: 5px 0;
   font-weight: bold;
-  color: #eaeaea;
+  color: #000000;
 }
 
-/* Galaxy banner for conference paper title */
+/* Galaxy banner for conference paper title - IMAGE ONLY BEHIND TITLE */
 .title-banner {
   width: 100%;
-  height: 300px;
-  background-image: url('banner3.jpeg'); /* Your galaxy image */
+  height: 400px; /* Taller banner */
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('banner3.jpeg'); /* Darkened overlay for readability */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -55,15 +57,16 @@ body {
   justify-content: center;
   border-radius: 10px;
   margin: 30px 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .title-banner h2 {
-  font-size: 48px;
+  font-size: 72px; /* Much larger */
   color: white;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-shadow: 3px 3px 10px rgba(0,0,0,0.9);
   text-align: center;
-  font-weight: bold;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
 /* Section dividers with images */
@@ -74,44 +77,50 @@ body {
   margin: 30px auto;
   display: block;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Headings */
+/* Headings - ALL LEFT ALIGNED */
 h1, h2, h3, h4, h5, h6 {
-  color: #eaeaea;
+  color: #000000;
   font-weight: bold;
   margin: 20px 0 10px 0;
+  text-align: left; /* LEFT ALIGNED */
 }
 
 h3 {
-  font-size: 28px;
-  color: #64b5f6; /* Light blue for headings */
-  border-bottom: 2px solid #64b5f6;
-  padding-bottom: 5px;
+  font-size: 32px;
+  color: #1a1a2e; /* Dark color for headings */
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 8px;
   margin-top: 40px;
+  font-weight: 700;
 }
 
 h4 {
-  font-size: 22px;
-  color: #90caf9;
+  font-size: 24px;
+  color: #333333;
   margin-top: 25px;
+  font-weight: 600;
 }
 
 /* Paragraphs */
 p {
-  color: #eaeaea;
+  color: #000000;
   line-height: 1.8;
   margin: 15px 0;
   max-width: 90%;
   word-wrap: break-word;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 /* Lists */
 ul {
-  color: #eaeaea;
+  color: #000000;
   line-height: 1.8;
   margin: 15px 0 15px 30px;
+  font-size: 16px;
 }
 
 ul li {
@@ -121,19 +130,20 @@ ul li {
 /* Horizontal line */
 hr {
   border: none;
-  border-top: 1px solid #64b5f6;
+  border-top: 2px solid #667eea;
   margin: 30px 0;
 }
 
 /* Links */
 a {
-  color: #64b5f6;
+  color: #667eea;
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 500;
 }
 
 a:hover {
-  color: #90caf9;
+  color: #764ba2;
   text-decoration: underline;
 }
 
@@ -149,7 +159,7 @@ a:hover {
   color: white;
   padding: 16px 40px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
   border: none;
   cursor: pointer;
   border-radius: 50px;
@@ -165,25 +175,27 @@ a:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #16213e;
+  background-color: #ffffff;
   min-width: 350px;
-  box-shadow: 0px 8px 25px rgba(0,0,0,0.5);
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
   z-index: 1000;
   border-radius: 10px;
   margin-top: 10px;
   left: 50%;
   transform: translateX(-50%);
   overflow: hidden;
+  border: 2px solid #667eea;
 }
 
 .dropdown-content a {
-  color: #eaeaea !important;
+  color: #000000 !important;
   padding: 15px 20px;
   text-decoration: none;
   display: block;
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(100, 181, 246, 0.2);
+  border-bottom: 1px solid rgba(102, 126, 234, 0.2);
   text-align: left;
+  font-weight: 500;
 }
 
 .dropdown-content a:last-child {
@@ -192,5 +204,6 @@ a:hover {
 
 .dropdown-content a:hover {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
   padding-left: 30px;
 }
