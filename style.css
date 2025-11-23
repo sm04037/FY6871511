@@ -11,45 +11,59 @@
   background-size: cover;
   position: relative;
   padding: 20px;
-  color: white; /* Makes all text white */
+  color: white !important;
+  text-align: center; /* Centers all text */
 }
 
-/* Make all headings white */
+/* Force all text to be white */
+.header * {
+  color: white !important;
+}
+
+/* Make all headings white and centered */
 h1, h2, h3, h4, h5, h6 {
-  color: white;
+  color: white !important;
+  text-align: center;
 }
 
-/* Make all paragraphs and pre text white */
+/* Make all paragraphs and pre text white and centered */
 p, pre {
-  color: white;
+  color: white !important;
+  text-align: center;
 }
 
 /* Make links white */
 a {
-  color: white;
+  color: white !important;
+  text-decoration: none;
 }
 
-/* Table styling - remove white backgrounds */
+a:hover {
+  color: #cccccc !important;
+  text-decoration: underline;
+}
+
+/* Table styling */
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 30%;
-  margin: 20px 0;
-  background-color: transparent; /* Remove white background */
+  margin: 20px auto; /* Centers the table */
+  background-color: transparent;
 }
 
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-  color: white; /* White text in table */
-  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.5); /* Darker rows for contrast */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 th {
-  background-color: rgba(0, 0, 0, 0.6); /* Even darker for header */
+  background-color: rgba(0, 0, 0, 0.6);
 }
