@@ -3,28 +3,23 @@
   padding: 0;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a2e; /* Dark blue background */
+  color: #eaeaea;
+}
+
 .header{
   min-height: 100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('banner3.jpeg');
-  background-position: center;
-  background-size: cover;
-  position: relative;
   padding: 20px;
-  color: white !important;
-}
-
-/* Force all text to be white */
-.header * {
-  color: white !important;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Top left container for banner and info */
 .top-left-info {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
+  margin-bottom: 30px;
 }
 
 .top-left-info img {
@@ -38,100 +33,164 @@
   font-size: 18px;
   margin: 5px 0;
   font-weight: bold;
+  color: #eaeaea;
 }
 
 .top-left-info h2 {
   font-size: 16px;
   margin: 5px 0;
   font-weight: bold;
+  color: #eaeaea;
 }
 
-/* Add padding to main content so it doesn't hide behind top-left info */
-.header > hr {
-  margin-top: 180px;
+/* Galaxy banner for conference paper title */
+.title-banner {
+  width: 100%;
+  height: 300px;
+  background-image: url('banner3.jpeg'); /* Your galaxy image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 30px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
-/* Make all headings bold */
-h1, h2, h3, h4, h5, h6 {
-  color: white !important;
+.title-banner h2 {
+  font-size: 48px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-align: center;
   font-weight: bold;
-  text-align: center;
 }
 
-/* Center the conference paper heading */
-.header > h2 {
-  text-align: center;
+/* Section dividers with images */
+.section-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 30px auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* Make all paragraphs and pre text white and left-aligned */
-p, pre {
-  color: white !important;
-  text-align: left;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #eaeaea;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
 }
 
-/* Make links white */
+h3 {
+  font-size: 28px;
+  color: #64b5f6; /* Light blue for headings */
+  border-bottom: 2px solid #64b5f6;
+  padding-bottom: 5px;
+  margin-top: 40px;
+}
+
+h4 {
+  font-size: 22px;
+  color: #90caf9;
+  margin-top: 25px;
+}
+
+/* Paragraphs */
+p {
+  color: #eaeaea;
+  line-height: 1.8;
+  margin: 15px 0;
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+/* Lists */
+ul {
+  color: #eaeaea;
+  line-height: 1.8;
+  margin: 15px 0 15px 30px;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+/* Horizontal line */
+hr {
+  border: none;
+  border-top: 1px solid #64b5f6;
+  margin: 30px 0;
+}
+
+/* Links */
 a {
-  color: white !important;
+  color: #64b5f6;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 a:hover {
-  color: #cccccc !important;
+  color: #90caf9;
   text-decoration: underline;
 }
 
-/* Dropdown container */
+/* Dropdown */
 .dropdown {
-  position: relative;
-  display: inline-block;
-  margin: 20px auto;
   text-align: center;
-  width: 100%;
+  margin: 30px 0;
+  position: relative;
 }
 
-/* Dropdown button */
 .dropdown-btn {
-  background-color: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 16px 30px;
-  font-size: 16px;
+  padding: 16px 40px;
+  font-size: 18px;
   font-weight: bold;
-  border: 2px solid white;
+  border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 50px;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
 .dropdown-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
 
-/* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.9);
-  min-width: 300px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-  z-index: 1;
-  border-radius: 5px;
-  margin-top: 5px;
+  background-color: #16213e;
+  min-width: 350px;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.5);
+  z-index: 1000;
+  border-radius: 10px;
+  margin-top: 10px;
   left: 50%;
   transform: translateX(-50%);
+  overflow: hidden;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
-  color: white !important;
-  padding: 12px 16px;
+  color: #eaeaea !important;
+  padding: 15px 20px;
   text-decoration: none;
   display: block;
-  transition: background-color 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(100, 181, 246, 0.2);
+  text-align: left;
 }
 
-/* Change color on hover */
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
 .dropdown-content a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding-left: 30px;
 }
