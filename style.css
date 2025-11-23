@@ -11,21 +11,45 @@
   background-size: cover;
   position: relative;
   padding: 20px;
+  color: white; /* Makes all text white */
 }
 
+/* Make all headings white */
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+}
+
+/* Make all paragraphs and pre text white */
+p, pre {
+  color: white;
+}
+
+/* Make links white */
+a {
+  color: white;
+}
+
+/* Table styling - remove white backgrounds */
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 30%;
   margin: 20px 0;
+  background-color: transparent; /* Remove white background */
 }
 
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  color: white; /* White text in table */
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: rgba(0, 0, 0, 0.5); /* Darker rows for contrast */
+}
+
+th {
+  background-color: rgba(0, 0, 0, 0.6); /* Even darker for header */
 }
