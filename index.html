@@ -23,26 +23,20 @@
       </div>
       
       <hr>
-      <h2><b>Conference paper: Galaxy Formation</b></h2>
+      <h2><b>Conference paper: Bridge Deck Repairs</b></h2>
       
-      <!-- Table of contents -->
-      <table>
-        <tr>
-          <th><h3>Table of contents</h3></th>
-        </tr>
-        <tr>
-          <td><a href="#Abstract">Abstract</a></td>
-        </tr>
-        <tr>
-          <td><a href="#Introduction">Introduction</a></td>
-        </tr>
-        <tr>
-          <td><a href="#Analysis and discussion">Analysis and discussion</a></td>
-        </tr>
-        <tr>
-          <td><a href="#References">References</a></td>
-        </tr>
-      </table>
+      <!-- Dropdown Table of Contents -->
+      <div class="dropdown">
+        <button class="dropdown-btn">Table of contents ▼</button>
+        <div class="dropdown-content">
+          <a href="#Abstract">Abstract</a>
+          <a href="#Introduction">Introduction</a>
+          <a href="#Formation and the role of dark matter">Formation and the role of dark matter</a>
+          <a href="#The 3 Types of Galaxies">The 3 Types of Galaxies</a>
+          <a href="#Different methods carried out for the study of galaxy formations">Different methods</a>
+          <a href="#References">References</a>
+        </div>
+      </div>
       
       <h3 id="Abstract">Abstract</h3>
       <p>
@@ -129,5 +123,27 @@ In: Proc. 17th Internat. Conf.on Machine Learning. Morgan Kaufman, Stanford, CA,
       </p>
       
     </section>
+
+    <script>
+      // Toggle dropdown on click
+      document.querySelector('.dropdown-btn').addEventListener('click', function() {
+        var dropdown = document.querySelector('.dropdown-content');
+        if (dropdown.style.display === 'block') {
+          dropdown.style.display = 'none';
+        } else {
+          dropdown.style.display = 'block';
+        }
+      });
+
+      // Close dropdown when clicking outside
+      window.addEventListener('click', function(event) {
+        if (!event.target.matches('.dropdown-btn')) {
+          var dropdowns = document.getElementsByClassName('dropdown-content');
+          for (var i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].style.display = 'none';
+          }
+        }
+      });
+    </script>
   </body>
 </html>
