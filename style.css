@@ -12,7 +12,6 @@
   position: relative;
   padding: 20px;
   color: white !important;
-  text-align: center; /* Centers all text */
 }
 
 /* Force all text to be white */
@@ -20,16 +19,33 @@
   color: white !important;
 }
 
-/* Make all headings white and centered */
+/* Make all headings white, bold, and left-aligned */
 h1, h2, h3, h4, h5, h6 {
   color: white !important;
-  text-align: center;
+  text-align: left;
+  font-weight: bold;
 }
 
-/* Make all paragraphs and pre text white and centered */
+/* Make all paragraphs and pre text white and left-aligned */
 p, pre {
   color: white !important;
-  text-align: center;
+  text-align: left;
+}
+
+/* Banner image - top left */
+img[src="WebBanner2023.png"] {
+  display: block;
+  margin: 0; /* Remove auto centering */
+  float: none;
+}
+
+/* Top section (banner and text below it) aligned to left */
+.header > h1,
+.header > h2:nth-of-type(1),
+.header > h2:nth-of-type(2),
+.header > hr {
+  text-align: left;
+  margin-left: 0;
 }
 
 /* Make links white */
@@ -48,7 +64,7 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 30%;
-  margin: 20px auto; /* Centers the table */
+  margin: 20px 0;
   background-color: transparent;
 }
 
@@ -66,4 +82,5 @@ tr:nth-child(even) {
 
 th {
   background-color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
 }
