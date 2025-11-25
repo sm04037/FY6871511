@@ -12,6 +12,95 @@
       }
     </style>
   </head>
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+    <!-- Last commit time display -->
+<div id="last-updated">Loading last update time...</div>
+<!-- Verify Button -->
+<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+    Verify Last Modified Time
+</button>
+<script>
+    async function getLastUpdatedTime() {
+        const username = 'FEPSFY6871511';
+        const repo = 'FY6871511';
+       
+        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json',
+                }
+            });
+            if (!response.ok) {
+                throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+            }
+            const commits = await response.json();
+            if (commits && commits.length > 0) {
+                const lastCommitDate = new Date(commits[0].commit.committer.date);
+               
+                // Displaying the time on load
+                document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+            } else {
+                document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+            }
+        } catch (error) {
+            console.error('Error fetching the last updated time:', error);
+            document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
+        }
+    }
+    // Function to verify the last update time by re-fetching it from the API
+    async function verifyLastUpdatedTime() {
+        document.getElementById('last-updated').innerText = 'Verifying...';
+        await getLastUpdatedTime();
+        alert("Last modified time has been successfully verified from GitHub API.");
+    }
+    // Initial load to display the time on page load
+    window.onload = getLastUpdatedTime;
+</script>
+
+
+ <!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Word count function ////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+<!-- Placeholder for total word count -->
+<p id="totalWordCount"></p>
+<hr>
+<script>
+  // Function to calculate and display word count for a specified section
+  function displayWordCount(sectionId, outputId) {
+    // Get the text content from the specified section
+    const text = document.getElementById(sectionId).textContent;
+    // Split text into words based on spaces and filter out any empty strings
+    const wordArray = text.trim().split(/\s+/);
+    // Count the words
+    const wordCount = wordArray.length;
+    // Return the word count for summing purposes
+    return wordCount;
+  }
+  // Function to calculate and display total word count from selected sections
+  function displayTotalWordCount() {
+    // Calculate word count for each section and accumulate the total
+    const AbstractCount = displayWordCount("Abstract_Text");
+    const IntroCount = displayWordCount("Intro_Text");
+    const Formation Count = displayWordCount("Formation_Text");
+    const SpiralCount = displayWordCount("Spiral_Text");
+    const EllipticalCount = displayWordCount("Elliptical_Text"); 
+    const CompCount = displayWordCount("Computational_Text");
+
+
+    // Calculate the sum of all selected sections
+    const totalWordCount = AbstractCount + IntroCount + FormationCount + SpiralCount + EllipticalCount + CompCount   ;
+    // Display the total word count
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+  }
+  // Run the function for specific sections and display total count when the page loads
+  window.onload = displayTotalWordCount;
+</script>
+  
   
   <body>
     <section class="header">
@@ -44,11 +133,13 @@
       
       <h3 id="Abstract">Abstract</h3>
       <p>
+        <pre id="Abstract_Text"></pre>
         This paper explores the fascinating process of galaxy formation, from the initial clouds of gas and dust to the diverse structures we observe today. We examine the crucial role of dark matter in shaping galaxies, analyze the three main types of galaxies (spiral, elliptical, and irregular), and discuss both computational and observational methods used to study galaxy formation.
       </p>
       
       <h3 id="Introduction">Introduction</h3>
       <p>
+         <pre id="Intro_Text"></pre>
         Today there exists many billions of galaxies (<a href="#ref7">NASA Science, no date</a>). How did they form? To answer that question, over many years astronomers have used the fundamental laws of physics to deduce the basic story of galaxy formation (<a href="#ref1">American Museum of Natural History, no date</a>). 
         The formation process had begun with huge clouds of gas and dust. As these clouds collapse under gravity, the gas becomes denser and heats up, leading to the formation of stars (<a href="#ref6">Astronomy.com, no date</a>). Overtime, smaller galaxies collide and merge which allows them to grow into large structures, as shown in Figure 1.
       </p>
@@ -63,6 +154,8 @@
 
       <h3 id="Formation and the role of dark matter">Formation and the role of dark matter</h3>
       <p>
+
+       <pre id="Formation_Text"></pre>
         As mentioned already, galaxies formed from an initial gas cloud, followed by star formation and then ending in merging and growth (hierarchical merging) (<a href="#ref2">Center for Astrophysics, no date</a>). 
         Dark matter has played a big role in galaxy formation (<a href="#ref10">Institute of Astronomy, no date</a>). It is an invisible form of matter whose total mass in the universe is roughly five times that of "normal" matter (i.e. atoms) (<a href="#ref7">NASA Science, no date</a>).
         It acts as a scaffolding of the universe and the visible matter simply collects inside of that scaffolding, in the form of stars and galaxies (<a href="#ref3">Bower, no date</a>). Dark matter does this by clumping together; in which small objects form first and are drawn together to form larger ones, as illustrated in Figure 2.
@@ -80,6 +173,7 @@
       
       <h4>Spiral Galaxies:</h4>
       <p>
+         <pre id="Spiral_Text"></pre>
         The formation of a spiral galaxy occurs through hierarchical merging of smaller galaxies and the formation of a rotating disk (<a href="#ref9">National Astronomical Observatory of Japan, no date</a>). Matter is distributed almost uniformly in space, however because small density fluctuations exist, matter is gradually collected by the gravity from parts with a higher density (<a href="#ref2">Center for Astrophysics, no date</a>). Over time, the gas density becomes high enough and stars are born, forming small galaxies. These small galaxies then merge with each other, creating even larger galaxies.
         During the process of merging, a disk is formed, and stars are born into this disk. As small galaxies pass around the periphery of this disk, the effect of their gravity create a spiral structure in the disk (<a href="#ref9">National Astronomical Observatory of Japan, no date</a>).
         <br><br>
@@ -96,6 +190,7 @@
 
       <h4>Elliptical Galaxies:</h4>
       <p>
+         <pre id="Elliptical_Text"></pre>
         Elliptical galaxies, unlike spirals, usually contain little gas and dust and show very little organization or structure (<a href="#ref8">NASA Science, no date</a>). The stars formed, orbit the core in random directions and are generally older than those in spiral galaxies, since little of the gas needed to form new stars remains. In terms of their exact origin, it is believed that they come from collisions and mergers with spirals (<a href="#ref8">NASA Science, no date</a>).  
         When two galaxies collide, it's because of gas clouds being compressed, leading to new star formation, as illustrated in Figure 4.
       </p>
@@ -110,6 +205,7 @@
 
       <h4>Irregular Galaxies:</h4>
       <p>
+         <pre id="Irregular_Text"></pre>
         Irregular galaxies have unusual shapes and range from dwarf irregular galaxies with 100 million times the sun's mass to large ones weighing 10 billion solar masses (<a href="#ref8">NASA Science, no date</a>).
         What causes these irregular shapes? Astronomers think that these galaxies' odd shapes are sometimes the result of interactions with others (<a href="#ref4">BBC Sky at Night Magazine, no date</a>). For instance, one spiral galaxy passing with a stronger gravitational pull could lose some of its material, causing it to become distorted and have a new shape, as shown in Figure 5.
       </p>
@@ -126,6 +222,7 @@
       
       <h4>Computational methods:</h4>
       <ul>
+        <pre id="Computational_Text"></pre>
         <li>Researchers build sophisticated computer models to simulate the formation and evolution of galaxies, including the roles of dark matter, gas, and stars (<a href="#ref10">Institute of Astronomy, no date</a>).</li>
         <li>The use of semi-analytic models that combine different types of physics and data to create a hybrid approach for simulating galaxy formation (<a href="#ref11">Institute of Astronomy, no date</a>).</li>
         <li>There are currently new techniques being developed to simulate specific processes, such as star formation in extreme environments or the feedback effects of black holes on their galaxies (<a href="#ref11">Institute of Astronomy, no date</a>), as demonstrated in Figure 6.</li>
